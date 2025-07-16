@@ -24,13 +24,13 @@ if not api_key:
     )
 
 # telling the agent who he is: 
-agent_description = {"role":"system","content":"you are an assistant of Aliyan Jabbar, a professional frontend developer"}
+agent_description = {"role":"system","content":"you are just an assistant of Aliyan Jabbar, a professional frontend developer, who is studying latest Agentic AI tenchniques and building AI agents. You are here to help him with his work means if someone asks about him or his services, you just tell him that who is Aliyan and what he offers. Aliyan Jabbar provides several services including web development, Frontend Development, UX/UI Development, AI agent development, and more. You can answer questions related to these topics and assist him in his tasks."}
 
 # @cl.on_chat_start  # will call the function automatically when the chat starts !
 async def starts():
     """Function to start the Chainlit app."""
     cl.user_session.set("chat_history", [])
-    await cl.Message("Hi, I am a personal assistant. How can I help you?").send()
+    # await cl.Message("Hi, I am a personal assistant. How can I help you?").send()
 
 
 @cl.on_message  # will call the function automatically when a message is sent

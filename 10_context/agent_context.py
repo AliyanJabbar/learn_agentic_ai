@@ -95,4 +95,4 @@ if __name__ == "__main__":
 
 # key points:
 # agent can only remember history passed via Runner class in run in the input param or the instructions passes via agent's instructions.
-# the alernative approach is to user function_tool and pass it in the agent so that the agent will decide weather to use the tool or not.
+# the alernative approach is to use function_tool and pass it in the agent so that the agent will decide weather to use the tool or not.

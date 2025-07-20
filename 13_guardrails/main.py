@@ -59,10 +59,10 @@ guardrail_agent = Agent(
 
 @input_guardrail
 async def math_guardrail(
-    ctx: RunContextWrapper[None], agent: Agent, input: str | list[TResponseInputItem]
+    wrapper: RunContextWrapper[None], agent: Agent, input: str | list[TResponseInputItem]
 ) -> GuardrailFunctionOutput:
     result = await Runner.run(
-        guardrail_agent, input, context=ctx.context, run_config=configuration
+        guardrail_agent, input, context=wrapper.context, run_config=configuration
     )
     print("output of guardrail agent", result.final_output)
     return GuardrailFunctionOutput(
@@ -128,12 +128,12 @@ guardrail_agent2 = Agent(
 
 @output_guardrail
 async def math_guardrail2(
-    ctx: RunContextWrapper, agent: Agent, output: MessageOutput
+    wrapper: RunContextWrapper, agent: Agent, output: MessageOutput
 ) -> GuardrailFunctionOutput:
     result = await Runner.run(
         guardrail_agent2,
         output.response,
-        context=ctx.context,
+        context=wrapper.context,
         run_config=configuration,
     )
     print("output guardrail result : ", result.final_output)

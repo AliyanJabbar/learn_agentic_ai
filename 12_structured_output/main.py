@@ -35,6 +35,9 @@ external_model = OpenAIChatCompletionsModel(
 set_tracing_disabled(True)
 
 
+
+
+
 class WeatherAnswer(BaseModel):
     location: str
     temperature_c: float

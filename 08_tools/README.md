@@ -1,0 +1,1 @@
+## the function_tool use pydantic model to validate input and output of tool that's why we can't use output_type with function tool in agent

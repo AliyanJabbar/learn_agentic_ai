@@ -1,0 +1,55 @@
+<!-- this code gives example that how chatgpt coverts(parse) it's markdown output into html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Markdown Renderer</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        background: #f9f9f9;
+      }
+      #output {
+        background: white;
+        padding: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+      }
+      textarea {
+        width: 100%;
+        height: 150px;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Markdown Input</h2>
+    <textarea id="markdown-input">
+# Hello World
+## Subheading
+**This is bold**
+
+- Item 1
+- Item 2
+- Item 3
+    </textarea>
+
+    <button onclick="renderMarkdown()">Render</button>
+
+    <h2>Rendered Output</h2>
+    <div id="output"></div>
+
+    <script>
+      function renderMarkdown() {
+        const input = document.getElementById("markdown-input").value;
+        const output = marked.parse(input);
+        document.getElementById("output").innerHTML = output;
+      }
+
+      // Render initially
+      renderMarkdown();
+    </script>
+  </body>
+</html>

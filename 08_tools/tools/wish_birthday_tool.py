@@ -1,8 +1,9 @@
 from agents import function_tool
 
 
-@function_tool("wish_birthday")
+@function_tool(name_override="birthday_wish_kro")
 async def wish_birthday(name: str, age: int) -> str:
+    print("tool running...")
     """
     A tool to wish someone a happy birthday.
 

@@ -1,18 +1,18 @@
-from agents import Agent, Runner, set_tracing_disabled, enable_verbose_stdout_logging
+from agents import Agent, Runner, enable_verbose_stdout_logging, ModelSettings
 import asyncio
 from tools.wish_birthday_tool import wish_birthday
 from my_config import config
 
 
-async def main(input_text: str):
+async def advance(input_text: str):
     enable_verbose_stdout_logging()
     agent = Agent(
         name="Birthday Wishing Agent",
-        instructions="You are an agent that wish birthday to others, you mush take age and name to wish someone a happy birthday.",
+        # instructions="You are an agent that wish birthday to others, you mush take age and name to wish someone a happy birthday.",
+        instructions="You are an agent that wish birthday to user.",
         tools=[wish_birthday],
+        # model_settings=ModelSettings(tool_choice="required"),
     )
-
-    set_tracing_disabled(True)
 
     result = await Runner.run(agent, input_text, run_config=config)
     print("Final output:", result.final_output)
@@ -24,7 +24,7 @@ async def run_interactive():
         user_input = input("Enter your input: ")
         if user_input.lower() == "exit":
             break
-        await main(user_input)
+        await advance(user_input)
 
 
 if __name__ == "__main__":

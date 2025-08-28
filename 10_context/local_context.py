@@ -1,7 +1,7 @@
 import asyncio
 from pydantic import BaseModel
 from agents import Agent, RunContextWrapper, Runner, function_tool
-from utils.configuration import get_model
+from my_config import external_model
 
 
 class UserInfo1(BaseModel):
@@ -63,7 +63,7 @@ async def main():
             fetch_user_id,
             set_user_id
         ],
-        model=get_model(),
+        model=external_model,
     )
 
     user_input = input("enter message: ")
@@ -90,7 +90,7 @@ async def main():
 #             fetch_user_id,
 #             set_user_id,
 #         ],
-#         model=get_model(),
+#         model=external_model,
 #     )
 
 #     user_input = input("enter message: ")

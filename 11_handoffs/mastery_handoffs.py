@@ -13,23 +13,15 @@ from agents import (
 )
 from pydantic import BaseModel
 
-load_dotenv()
-
-gemini_key = os.getenv("GEMINI_API_KEY")
-
-if not gemini_key:
-    raise ValueError("Api key is not set")
 
 
-external_client = AsyncOpenAI(
-    api_key=gemini_key,
-    base_url="https://generativelanguage.googleapis.com/v1beta/openai/",
-)
 
-set_default_openai_client(client=external_client, use_for_tracing=False)
-set_default_openai_api("chat_completions")
-set_tracing_disabled(disabled=True)
+
 enable_verbose_stdout_logging()  # shows that at firt the agent has 3 handoffs. Each handoff agent is treated as tools with name = transfer_to_"agent_name". then the agent decides to transfer to which agent and then the response is generated.
+
+
+# ---------------------------- main content starts here ----------------------------
+
 # urdu agent
 urdu_agent = Agent(
     name="Urdu agent", instructions="You only speak Urdu.", model="gemini-2.0-flash"

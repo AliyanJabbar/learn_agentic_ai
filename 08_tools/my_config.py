@@ -18,6 +18,6 @@ external_model = OpenAIChatCompletionsModel(
 
 config = RunConfig(
     model=external_model,
-    tracing_disabled=True,
+    # tracing_disabled=True,
     model_provider=external_client,
 )

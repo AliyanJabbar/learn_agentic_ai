@@ -11,6 +11,7 @@ class HelloAgentHooks(AgentHooks):
         print(f"\n\n[{self.lifecycle_name}] Agent {agent.name} starting with context: {context}\n\n")
         
     async def on_llm_start(self, context: RunContextWrapper, agent, system_prompt, input_items):
+        
         print(f"\n\n[{self.lifecycle_name}] LLM call starting with system prompt: {system_prompt} and input items: {input_items}\n\n")
         
     async def on_llm_end(self, context, agent, response):

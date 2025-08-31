@@ -33,8 +33,8 @@ def main():
         name="Agent",
         tools=[weather, nation_sports],
         model_settings=ModelSettings(
-            tool_choice="nation_sports",
-            parallel_tool_calls=False,  # if true can call multiple tools in one turn or generation
+            # tool_choice="nation_sports",
+            # parallel_tool_calls=False,  # if true can call multiple tools in one turn or generation
         ),
         # reset_tool_choice=False,
     )

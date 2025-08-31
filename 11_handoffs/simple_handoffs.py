@@ -24,7 +24,7 @@ external_client = AsyncOpenAI(
 
 set_default_openai_client(client=external_client, use_for_tracing=False)
 set_default_openai_api("chat_completions")
-set_tracing_disabled(disabled=True)
+# set_tracing_disabled(disabled=True)
 
 # urdu agent
 urdu_agent = Agent(
